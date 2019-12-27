@@ -3,6 +3,8 @@ var router = express.Router();
 var validator = require('express-validator')
 var createStudent = require('../controllers/srijan/createStudent')
 var updateStudent = require('../controllers/srijan/updateStudent')
+var getStudentDetail = require('../controllers/srijan/getStudentDetail')
+
 
 router.use(validator());
 const JWTSECRET = 'THIS_IS_A_TEST_JWT_SECRET_KEY';
@@ -42,6 +44,12 @@ router.post('/createStudent', createStudent.createStudent);
 
 // PUT method to update student details
 router.put('/updateStudent/:email', updateStudent.updateStudent);
+
+// GET method to get the details of student provided by id
+router.get('/getStudentDetail/:email', getStudentDetail.getStudentDetail);
+
+
+// DELETE method to delete a student from the database
 
 
 

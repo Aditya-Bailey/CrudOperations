@@ -27,7 +27,7 @@ module.exports = {
                     },
                     errorMessage: 'Please fill valid Email '
                 },
-                'age' : {
+                'age': {
                     notEmpty: true,
                     isNumeric: true,
                     isLength: {
@@ -36,11 +36,11 @@ module.exports = {
                     },
                     errorMessage: 'Provide the Pay Rate'
                 },
-                "gender" : {
+                "gender": {
                     notEmpty: true,
                     errorMessage: 'Please enter gender'
                 },
-                "motherName" : {
+                "motherName": {
                     notEmpty: true,
                     isLength: {
                         options: [{ min: 3, max: 20 }],
@@ -48,7 +48,7 @@ module.exports = {
                     },
                     errorMessage: "Please enter your Mother's name"
                 },
-                "fatherName" : {
+                "fatherName": {
                     notEmpty: true,
                     isLength: {
                         options: [{ min: 3, max: 50 }],
@@ -56,7 +56,7 @@ module.exports = {
                     },
                     errorMessage: "Please enter your Father's name"
                 },
-                "class" : {
+                "class": {
                     notEmpty: true,
                     errorMessage: "Please enter class/standard of student, studying in"
                 }
@@ -74,27 +74,27 @@ module.exports = {
                     "msg": errorsMessage[0]
                 });
             } else {
-                Student.findOne({email : req.body.email}).then((studentData)=>{
+                Student.findOne({ email: req.body.email }).then((studentData) => {
                     console.log('student data', studentData)
-                    if(studentData){
+                    if (studentData) {
                         console.log('already exists', studentData)
-                        res.json({status : false, message : "student already exists."})
-                    }else{
+                        res.json({ status: false, message: "student already exists." })
+                    } else {
                         var student = new Student({
-                            fullname : req.body.fullname,
-                            email : req.body.email,
-                            age : req.body.age,
-                            gender : req.body.gender,
-                            motherName : req.body.motherName,
-                            fatherName : req.body.fatherName,
-                            class : req.body.class
+                            fullname: req.body.fullname,
+                            email: req.body.email,
+                            age: req.body.age,
+                            gender: req.body.gender,
+                            motherName: req.body.motherName,
+                            fatherName: req.body.fatherName,
+                            class: req.body.class
                         })
-                        student.save(function(err, saved){
-                            if(err){
+                        student.save(function (err, saved) {
+                            if (err) {
                                 console.log('err', err)
-                                res.json({status : false, message : "error occured"})
-                            }else{
-                                res.json({status : true, message : "student created"})
+                                res.json({ status: false, message: "error occured" })
+                            } else {
+                                res.json({ status: true, message: "student created" })
                             }
                         });
                     }
@@ -107,8 +107,4 @@ module.exports = {
             });
         }
     },
-
-    
-
- 
 }
