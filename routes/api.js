@@ -4,6 +4,7 @@ var validator = require('express-validator')
 var createStudent = require('../controllers/srijan/createStudent')
 var updateStudent = require('../controllers/srijan/updateStudent')
 var getStudentDetail = require('../controllers/srijan/getStudentDetail')
+var deleteStudent = require('../controllers/srijan/deleteStudent')
 
 
 router.use(validator());
@@ -48,8 +49,8 @@ router.put('/updateStudent/:email', updateStudent.updateStudent);
 // GET method to get the details of student provided by id
 router.get('/getStudentDetail/:email', getStudentDetail.getStudentDetail);
 
-
 // DELETE method to delete a student from the database
+router.get('/deleteStudent/:email', deleteStudent.deleteStudent);
 
 
 
