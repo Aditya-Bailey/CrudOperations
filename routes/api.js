@@ -5,6 +5,8 @@ var createStudent = require('../controllers/srijan/createStudent')
 var updateStudent = require('../controllers/srijan/updateStudent')
 var getStudentDetail = require('../controllers/srijan/getStudentDetail')
 var deleteStudent = require('../controllers/srijan/deleteStudent')
+var getAllStudentsDetails = require('../controllers/srijan/getAllStudentsDetails')
+var search = require('../controllers/srijan/search')
 
 
 router.use(validator());
@@ -52,7 +54,11 @@ router.get('/getStudentDetail/:email', getStudentDetail.getStudentDetail);
 // DELETE method to delete a student from the database
 router.get('/deleteStudent/:email', deleteStudent.deleteStudent);
 
+// GET method to fetch all student details
+router.get('/getAllStudentsDetails', getAllStudentsDetails.getAllStudentsDetails);
 
+// POST method for searching student
+router.get('/search', search.search);
 
 module.exports = router;
 
