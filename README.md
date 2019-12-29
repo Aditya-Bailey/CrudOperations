@@ -3,7 +3,6 @@ CRUD behavior of student entity
 
 # Development / Build Requirements
 Node 10.17.0
-Mongodb version v3.6.3
 
 # Running the App
 To run the project, follow the steps given below:
